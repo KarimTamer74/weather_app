@@ -1,9 +1,10 @@
 // features/home/presentation/widgets/home_screen_header.dart
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/home/data/models/weather_model.dart';
 
 class HomeScreenHeader extends StatelessWidget {
-  const HomeScreenHeader({super.key});
-
+  const HomeScreenHeader({super.key, required this.weather});
+  final WeatherModel weather;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +14,7 @@ class HomeScreenHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Cairo",
+            weather.name,
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,
@@ -21,7 +22,7 @@ class HomeScreenHeader extends StatelessWidget {
             ),
           ),
           Text(
-            "Al Qahirah, Egypt",
+            "${weather.region}, ${weather.country}",
             style: TextStyle(
               color: Color(0xffCBD5E1),
               fontSize: 14,
@@ -32,7 +33,7 @@ class HomeScreenHeader extends StatelessWidget {
           Row(
             children: [
               Text(
-                "34",
+                weather.temp.toString(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 72,
@@ -55,7 +56,7 @@ class HomeScreenHeader extends StatelessWidget {
             ],
           ),
           Text(
-            "Sunny",
+            weather.status,
             style: TextStyle(
               color: Colors.white,
               fontSize: 20,
@@ -64,7 +65,7 @@ class HomeScreenHeader extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            "Feels like 37° . Updated 1:30 PM",
+            "Feels like ${weather.feelLikestemp}° . Updated ${weather.lastUpdated}",
             style: TextStyle(
               color: Color(0xffCBD5E1),
               fontSize: 14,

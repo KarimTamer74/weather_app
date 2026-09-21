@@ -7,7 +7,7 @@ class WeatherDetailsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal :16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -15,32 +15,40 @@ class WeatherDetailsSection extends StatelessWidget {
             'WEATHER DETAILS',
             style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 12,),
+          SizedBox(height: 12),
           GridView.builder(
             shrinkWrap: true,
             itemCount: 9,
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 12.0,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8.0,
               childAspectRatio: 1.2,
             ),
             itemBuilder: (context, index) {
               return Card(
+                color: Colors.white,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal :10.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Column(
+                    spacing: 3,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(Icons.abc, size: 38),
                       Text(
                         'HUMIDITY',
-                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Text(
                         '38%',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),

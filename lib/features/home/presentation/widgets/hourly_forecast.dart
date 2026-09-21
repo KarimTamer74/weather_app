@@ -1,9 +1,10 @@
 // features/home/presentation/widgets/HOURLY_FORECAST.dart
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/home/data/models/weather_model.dart';
 
 class HourlyForecast extends StatelessWidget {
-  const HourlyForecast({super.key});
-
+  const HourlyForecast({super.key, required this.weather});
+  final HourModel weather;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,7 +46,7 @@ class HourlyForecast extends StatelessWidget {
                       ),
                       Icon(Icons.sunny, color: Colors.yellow),
                       Text(
-                        '34°',
+                        weather.hourTemp,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: index == 0 ? Colors.white : Color(0xff64748B),
